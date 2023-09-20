@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdint.h>
+
 #define BUFF_MAX 1024
 
 int _printf(const char *format, ...);
@@ -20,8 +21,8 @@ int is_enough(int *bi, int len);
 int _strlen(const char *s);
 void reset_buffer(char *buff, int *pbi);
 int func_octal(char *buffer, int *bi, va_list list);
-int func_hexadecimal(char *buffer, int *bi, va_list list , int uppercase);
+int func_hexadecimal(char *buffer, int *bi, va_list list, int uppercase);
 int func_pointer(char *buffer, int *bi, va_list list);
-void reverse_string(char *str);
 int func_reverse(char *buffer, int *bi, va_list list);
+
 #endif

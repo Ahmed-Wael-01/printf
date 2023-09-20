@@ -25,20 +25,20 @@ int handle_var(const char spec, char *buffer, int *bi, va_list list)
 		return (func_int(buffer, bi, list));
 	case 'i':
 		return (func_int(buffer, bi, list));
-	case '\0':
-		return (0);
 	case 'o':
-	        return ( func_octal(buffer, bi, list));	
+		return (func_octal(buffer, bi, list));
 	case 'x':
-		return (func_hexadecimal(buffer, bi, list , 0));
+		return (func_hexadecimal(buffer, bi, list, 0));
 	case 'X':
-	         return func_hexadecimal(buffer, bi, list, 1);
-        case 'p':
-                 return func_pointer(buffer, bi, list);
+		return (func_hexadecimal(buffer, bi, list, 1));
+	case 'p':
+		return (func_pointer(buffer, bi, list));
 	case 'r':
-                return func_reverse(buffer, bi, list);	 
+		return (func_reverse(buffer, bi, list));
 	default:
-		return (0);
+		buffer[(*bi)++] = '%';
+		buffer[(*bi)] = spec;
+		return (2);
 	}
 }
 
@@ -87,7 +87,8 @@ int _strlen(const char *s)
 
 void reset_buffer(char *buff, int *pbi)
 {
-	write(1, buff, *pbi);
+	if (*pbi > 0)
+		write(1, buff, *pbi);
 	*pbi = -1;
 }
 

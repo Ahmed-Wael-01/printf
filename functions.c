@@ -12,7 +12,9 @@
 
 int func_char(char *buffer, int *bi, va_list list)
 {
-	*(buffer + *bi) = (char)va_arg(list, int);
+	char c = va_arg(list, int);
+
+	*(buffer + *bi) = c;
 	return (1);
 }
 
@@ -94,10 +96,10 @@ int func_string(char *buffer, int *bi, va_list list)
 {
 	int i;
 	int len;
-	const char *str = va_arg(list, const char *);
+	char *str = va_arg(list, char *);
 
-	if (str)
-	{
+	if (!str)
+		str = "(null)";
 	len = _strlen(str);
 	if (!is_enough(bi, len))
 	{
@@ -108,7 +110,5 @@ int func_string(char *buffer, int *bi, va_list list)
 		buffer[(*bi)++] = str[i];
 	(*bi)--;
 	return (len);
-	}
-	return (0);
 }
 
