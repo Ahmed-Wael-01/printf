@@ -142,7 +142,7 @@ int func_rot(char *buffer, int *bi, va_list list)
 			}
 		}
 	}
-	*(bi)--;
+	(*bi)--;
 	return (len);
 }
 
