@@ -130,6 +130,8 @@ int func_rot(char *buffer, int *bi, va_list list)
 	int i, j;
 	int len = 0;
 
+	if (s[0] == '\0')
+		return (0);
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 52; j++)
