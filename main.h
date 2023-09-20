@@ -24,5 +24,6 @@ int func_octal(char *buffer, int *bi, va_list list);
 int func_hexadecimal(char *buffer, int *bi, va_list list, int uppercase);
 int func_pointer(char *buffer, int *bi, va_list list);
 int func_reverse(char *buffer, int *bi, va_list list);
+int func_rot(char *buffer, int *bi, va_list list);
 
 #endif

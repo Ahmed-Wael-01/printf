@@ -112,3 +112,37 @@ int func_string(char *buffer, int *bi, va_list list)
 	return (len);
 }
 
+/**
+ * func_rot - prints an array of chars
+ * @buffer: a var
+ * @bi: a var
+ * @list: a list
+ *
+ * Description: it does something
+ * Return: 1
+ */
+
+int func_rot(char *buffer, int *bi, va_list list)
+{
+	char values[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char newVal[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *s = va_arg(list, char *);
+	int i, j;
+	int len = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (s[i] == values[j])
+			{
+				buffer[(*bi)++] = newVal[j];
+				len++;
+				break;
+			}
+		}
+	}
+	*(bi)--;
+	return (len);
+}
+

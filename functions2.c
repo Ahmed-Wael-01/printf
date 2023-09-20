@@ -112,7 +112,7 @@ int func_reverse(char *buffer, int *bi, va_list list)
 	int len;
 
 	if (str[i] == '\0')
-		return(0);
+		return (0);
 	while (str[i + 1] != '\0')
 		i++;
 	len = i + 1;

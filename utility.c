@@ -35,6 +35,8 @@ int handle_var(const char spec, char *buffer, int *bi, va_list list)
 		return (func_pointer(buffer, bi, list));
 	case 'r':
 		return (func_reverse(buffer, bi, list));
+	case 'R':
+		return (func_rot(buffer, bi, list));
 	default:
 		buffer[(*bi)++] = '%';
 		buffer[(*bi)] = spec;
